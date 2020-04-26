@@ -1,18 +1,15 @@
 <#
 .SYNOPSIS
-    Profile for the Microsoft.Powershell Shell
+    Microsoft.PowerShell_profile
+
+.DESCRIPTION
+    Runs all scripts in components directory
 
 .NOTES
-    Original author: https://github.com/jayharris/dotfiles-windows
+    Adapted from https://github.com/jayharris/dotfiles-windows
 #>
 
-$profileDir = Split-Path -parent $profile
-$componentDir = Join-Path $profileDir "components"
 
-Push-Location $componentDir
-Get-ChildItem . | Where-Object {Test-Path "$_.ps1"} | ForEach-Object -process {
-  Invoke-Expression ". .\$_.FullName"
-}
+Push-Location (Join-Path (Split-Path -parent $profile) "components")
+Get-ChildItem | foreach { Invoke-Expression (Get-Content $_.FullName -Raw) }
 Pop-Location
-
-Write-Host "hello world!"
