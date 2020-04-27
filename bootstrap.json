@@ -8,8 +8,8 @@
         "dst": "components",
         "wipe": true
     }, {
-        "src": "./scripts/**",
-        "dst": "scripts",
+        "src": "./config/**",
+        "dst": "config",
         "wipe": true
     }, {
         "base": "home",
