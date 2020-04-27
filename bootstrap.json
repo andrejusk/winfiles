@@ -4,15 +4,12 @@
         "dst": ".",
         "exclude": "bootstrap.ps1"
     }, {
-        "src": "./deps.config",
-        "dst": "."
-    }, {
         "src": "./components/**",
-        "dst": "./components",
+        "dst": "components",
         "wipe": true
     }, {
-        "src": "./windows/**",
-        "dst": "./windows",
+        "src": "./scripts/**",
+        "dst": "scripts",
         "wipe": true
     }, {
         "base": "home",
@@ -21,6 +18,6 @@
     }, {
         "base": "appdata",
         "src": "./vscode/**",
-        "dst": "./Code/User"
+        "dst": "Code/User"
     }]
 }
