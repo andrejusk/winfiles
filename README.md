@@ -10,18 +10,42 @@ If required, run as admin
 Set-ExecutionPolicy Unrestricted
 ```
 
-To run without repository
+To install without repository
 
 ```powershell
 $source = "https://raw.github.com/andrejusk/winfiles/master/setup/install.ps1"
 iex ((new-object net.webclient).DownloadString($source))
 ```
 
-To run within repository
+To install within repository
 
 ```powershell
 . .\bootstrap.ps1
 ```
+
+# CLI
+
+After installing this repository, a CLI utility is available 
+to interact with the tools provided by the repository. 
+It can be used as:
+
+    $ winfiles <action> <option>
+
+Examples of actions and options available below.
+
+## Configuration
+
+To configure a new Windows machine (as admin)
+
+    # winfiles config windows
+
+To install tools and dependencies (as admin)
+
+    # winfiles config deps
+
+To login and import GPG key from keybase
+
+    $ winfiles config pgp
 
 # Repository Layout
 
@@ -42,19 +66,6 @@ Scripts for setting up repository
 * `vscode` &ndash;
 Tracked files for VSCode
 
-# Configuration
-
-To configure a new Windows machine
-
-```powershell
-winfiles script windows
-```
-
-To install tools and dependencies
-
-```powershell
-winfiles script deps
-```
 
 # References
 

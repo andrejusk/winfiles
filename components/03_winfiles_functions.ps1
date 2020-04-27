@@ -19,20 +19,18 @@ function System-Update() {
 }
 
 function Run-Script($folder, $script) {
-    $profileDir = Split-Path -parent $profile
-    $scriptsDir = Join-Path $profileDir $folder
-    Push-Location $profileDir
-    iex ". ./$script.ps1"
-    Pop-Location
+    $script = Join-Path (Split-Path -parent $profile) "$folder/$script.ps1"
+    iex $script
 }
 
 function Winfiles-CLI($action, $option) {
     Switch ($action) {
-        'update'    { System-Update }
-        'config'    {
-            if (!$option) { Write-Error "Missing 'option' parameter for config tool to run" }
-            else { Run-Script('config', $option) }
+        "update"    { System-Update }
+        "config"    {
+            if (!$option) { Write-Error "Missing 'option' parameter for config tool to run, see README.md" }
+            else { Run-Script "config" $option }
         }
+        default { Write-Error "Missing 'action' parameter for tool to run, see README.md" }
     }
 }
 Set-Alias winfiles Winfiles-CLI
