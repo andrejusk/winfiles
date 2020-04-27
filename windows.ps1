@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Run all Windows install scripts
+    Run all windows install scripts
 
 .DESCRIPTION
     Ensures to be run as Administrator
