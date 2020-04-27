@@ -19,7 +19,7 @@ if (!(Verify-Elevated)) {
 }
 
 $profileDir = Split-Path -parent $profile
-$windowsDir = Join-Path $profileDir "windows"
+$windowsDir = Join-Path $profileDir "config/windows"
 Push-Location $windowsDir
 Get-ChildItem | foreach { Invoke-Expression (Get-Content $_.FullName -Raw) }
 Pop-Location
