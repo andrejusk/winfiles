@@ -59,4 +59,3 @@ Set-Alias fs Get-DiskUsage
 Set-Alias emptytrash Empty-RecycleBin
 Set-Alias cleandisks Clean-Disks
 Set-Alias reload Reload-Powershell
-Set-Alias update System-Update

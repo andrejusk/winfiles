@@ -36,5 +36,4 @@ if ((which cinst) -eq $null) {
 }
 choco -v
 choco install deps.config
-choco upgrade all
 Refresh-Environment

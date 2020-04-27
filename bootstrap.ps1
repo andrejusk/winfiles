@@ -1,13 +1,16 @@
 <#
 .SYNOPSIS
     Install folder contents to PowerShell Profile folder
-    as configured in bootstrap.json
+    as configured in bootstrap.json next to the script
 
 .DESCRIPTION
-    * Load in configuration file
-    * Create necessary dirs if don't exist
-    * Wipe dirs to ensure fresh setup
-    * Copy all necessary files
+    Can be run as user.
+
+    Steps:
+        1. Load in configuration file
+        2. Create necessary dirs if don't exist
+        3. Wipe dirs to ensure fresh setup
+        4. Copy all necessary files
 
 .EXAMPLE
     $ . .\bootstrap.ps1
@@ -25,7 +28,6 @@ $bootstrapConfig    = Get-Content -Path $bootstrapJson | ConvertFrom-Json
 
 
 New-Item $profileDir -ItemType Directory -Force -ErrorAction SilentlyContinue | Out-Null
-
 foreach ($target in $bootstrapConfig.targets) {
 
     # Verify 'src' and 'dst' are given
