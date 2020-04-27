@@ -12,6 +12,10 @@
         "dst": "config",
         "wipe": true
     }, {
+        "src": "./config/windows/**",
+        "dst": "config/windows",
+        "wipe": true
+    }, {
         "base": "home",
         "src": "./home/**",
         "dst": "."
