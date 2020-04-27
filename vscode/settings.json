@@ -1,0 +1,32 @@
+{
+
+    // Display preferences
+    "window.zoomLevel": -1,
+
+    // Git preferences
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+
+    // File navigation preferences
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+
+    // Remote SSH preferences
+    "remote.SSH.remotePlatform": {
+        "dev": "linux"
+    },
+    "remote.SSH.defaultExtensions": [
+
+        // Utility plugins
+        "mutantdino.resourcemonitor",
+
+        // Git plugins
+        "eamodio.gitlens",
+
+        // Language plugins
+        "skyapps.fish-vscode",
+        "ms-python.python"
+    ],
+    "terminal.integrated.shell.linux": "/usr/bin/fish"
+
+}

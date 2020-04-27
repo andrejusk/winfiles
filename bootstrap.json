@@ -1,0 +1,26 @@
+{
+    "targets": [{
+        "src": "./*.ps1",
+        "dst": ".",
+        "exclude": "bootstrap.ps1"
+    }, {
+        "src": "./deps.config",
+        "dst": "."
+    }, {
+        "src": "./components/**",
+        "dst": "./components",
+        "wipe": true
+    }, {
+        "src": "./windows/**",
+        "dst": "./windows",
+        "wipe": true
+    }, {
+        "base": "home",
+        "src": "./home/**",
+        "dst": "."
+    }, {
+        "base": "appdata",
+        "src": "./vscode/**",
+        "dst": "./Code/User"
+    }]
+}
