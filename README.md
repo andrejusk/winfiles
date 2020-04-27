@@ -7,7 +7,7 @@ PowerShell profile, installation and configuration tools for Windows
 If required, run as admin
 
 ```powershell
-Set-ExecutionPolicy Unrestricted
+Set-ExecutionPolicy Bypass
 ```
 
 To install without repository
