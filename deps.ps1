@@ -18,8 +18,8 @@ if (!(Verify-Elevated)) {
    exit
 }
 
-# Write-Host "Updating Help..." -ForegroundColor "Yellow"
-# Update-Help -Force
+Write-Host "Updating Help..." -ForegroundColor "Yellow"
+Update-Help -Force
 
 Write-Host "Installing Package Providers..." -ForegroundColor "Yellow"
 Get-PackageProvider NuGet -Force | Out-Null
