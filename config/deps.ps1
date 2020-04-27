@@ -18,8 +18,8 @@ if (!(Verify-Elevated)) {
    exit
 }
 
-Write-Host "Updating Help..." -ForegroundColor "Yellow"
-Update-Help -Force
+# Write-Host "Updating Help..." -ForegroundColor "Yellow"
+# Update-Help -Force
 
 Write-Host "Installing Package Providers..." -ForegroundColor "Yellow"
 Get-PackageProvider NuGet -Force | Out-Null
@@ -35,5 +35,7 @@ if ((which cinst) -eq $null) {
     choco feature enable -n=allowGlobalConfirmation
 }
 choco -v
-choco install deps.config
+$profileDir = Split-Path -parent $profile
+$depsConfig = Join-Path $profileDir "config/deps.config"
+choco install $depsConfig
 Refresh-Environment
