@@ -46,7 +46,7 @@ foreach ($target in $bootstrapConfig.targets) {
     New-Item $dst -ItemType Directory -Force -ErrorAction SilentlyContinue | Out-Null
 
     # Wipe dst if required
-    if ($target.wipe) { Get-ChildItem $dst -Include ** | Remove-Item }
+    if ($target.wipe) { Get-ChildItem $dst -Include ** | Remove-Item -Force }
 
     # Copy contents
     Copy-Item -Path $target.src -Destination $dst -Include ** -Exclude $target.exclude

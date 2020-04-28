@@ -38,4 +38,5 @@ choco -v
 $profileDir = Split-Path -parent $profile
 $depsConfig = Join-Path $profileDir "config/deps.config"
 choco install $depsConfig
+choco install firefox-dev --prerelease
 Refresh-Environment
