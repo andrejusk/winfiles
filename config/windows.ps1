@@ -10,16 +10,8 @@
 #>
 
 
-if (!(Verify-Elevated)) {
-   $newProcess = new-object System.Diagnostics.ProcessStartInfo "PowerShell";
-   $newProcess.Arguments = $myInvocation.MyCommand.Definition;
-   $newProcess.Verb = "runas";
-   [System.Diagnostics.Process]::Start($newProcess);
-   exit
-}
+Assert-PowershellAdmin
 
-$profileDir = Split-Path -parent $profile
-$windowsDir = Join-Path $profileDir "config/windows"
-Push-Location $windowsDir
+Push-Location (Get-ProfilePath "config/windows")
 Get-ChildItem | foreach { Invoke-Expression (Get-Content $_.FullName -Raw) }
 Pop-Location

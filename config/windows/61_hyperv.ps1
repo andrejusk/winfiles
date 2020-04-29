@@ -4,4 +4,4 @@
 #>
 
 Write-Host "Configuring Hyper-V..." -ForegroundColor "Yellow"
-Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All -LogLevel 1
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V -All -LogLevel 1 -NoRestart

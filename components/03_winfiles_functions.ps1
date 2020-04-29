@@ -3,6 +3,16 @@
     winfiles utility functions
 #>
 
+function Get-RelativePath($path) {
+    <# Return path relative to currently executed script #>
+    return Join-Path $PSScriptRoot $path
+}
+
+function Get-ProfilePath($path) {
+    <# Return path relative to profile folder #>
+    return Join-Path (Split-Path -parent $profile) $path
+}
+
 function System-Update() {
     if (!(Verify-Elevated)) {
         $newProcess = new-object System.Diagnostics.ProcessStartInfo "PowerShell";

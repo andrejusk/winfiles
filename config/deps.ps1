@@ -9,14 +9,7 @@
   Original author: https://github.com/jayharris/dotfiles-windows
 #>
 
-if (!(Verify-Elevated)) {
-   $newProcess = new-object System.Diagnostics.ProcessStartInfo "PowerShell";
-   $newProcess.Arguments = $myInvocation.MyCommand.Definition;
-   $newProcess.Verb = "runas";
-   [System.Diagnostics.Process]::Start($newProcess);
-
-   exit
-}
+Assert-PowershellAdmin
 
 # Write-Host "Updating Help..." -ForegroundColor "Yellow"
 # Update-Help -Force
@@ -35,8 +28,6 @@ if ((which cinst) -eq $null) {
     choco feature enable -n=allowGlobalConfirmation
 }
 choco -v
-$profileDir = Split-Path -parent $profile
-$depsConfig = Join-Path $profileDir "config/deps.config"
-choco install $depsConfig
+choco install (Get-ProfilePath "config/deps.config")
 choco install firefox-dev --prerelease
 Refresh-Environment

@@ -46,6 +46,21 @@ function Reload-Powershell {
     exit
 }
 
+function Reload-PowershellAdmin {
+    $newProcess = new-object System.Diagnostics.ProcessStartInfo "PowerShell";
+   $newProcess.Arguments = $myInvocation.MyCommand.Definition;
+   $newProcess.Verb = "runas";
+   [System.Diagnostics.Process]::Start($newProcess);
+
+   exit
+}
+
+function Assert-PowershellAdmin {
+    if (!(Verify-Elevated)) {
+        Reload-PowershellAdmin
+    }
+}
+
 function Verify-BashShortcut {
     [CmdletBinding()]
     param (
