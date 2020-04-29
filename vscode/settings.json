@@ -24,6 +24,7 @@
         "eamodio.gitlens",
 
         // Language plugins
+        "TabNine.tabnine-vscode",
         "skyapps.fish-vscode",
         "ms-python.python"
     ],
