@@ -13,5 +13,7 @@
 Assert-PowershellAdmin
 
 Push-Location (Get-ProfilePath "config/windows")
-Get-ChildItem | foreach { Invoke-Expression (Get-Content $_.FullName -Raw) }
+Get-ChildItem | foreach {
+    Invoke-Expression (Get-Content $_.FullName -Raw)
+}
 Pop-Location
