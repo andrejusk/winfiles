@@ -2,6 +2,7 @@
 
     // Display preferences
     "window.zoomLevel": -1,
+    "editor.rulers": [ 80, 120 ],
 
     // Git preferences
     "git.autofetch": true,
