@@ -1,10 +1,12 @@
 <#
+.SYNOPSIS
+  Disk Cleanup (CleanMgr.exe)
+
 .NOTES
   Original author: https://github.com/jayharris/dotfiles-windows
 #>
-###############################################################################
-### Disk Cleanup (CleanMgr.exe)                                               #
-###############################################################################
+
+
 Write-Host "Configuring Disk Cleanup..." -ForegroundColor "Yellow"
 
 $diskCleanupRegPath = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\VolumeCaches\"

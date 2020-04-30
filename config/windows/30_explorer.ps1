@@ -1,10 +1,12 @@
 <#
+.SYNOPSIS
+  Explorer, Taskbar, and System Tray
+
 .NOTES
   Adapted from https://github.com/jayharris/dotfiles-windows
 #>
-###############################################################################
-### Explorer, Taskbar, and System Tray                                        #
-###############################################################################
+
+
 Write-Host "Configuring Explorer, Taskbar, and System Tray..." -ForegroundColor "Yellow"
 
 # Ensure necessary registry paths
@@ -44,7 +46,7 @@ Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Explo
 # Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" "HideSCAPower" 1  # Power
 
 # Taskbar: Show colors on Taskbar, Start, and SysTray: Disabled: 0, Taskbar, Start, & SysTray: 1, Taskbar Only: 2
-Set-ItemProperty "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" "ColorPrevalence" 1
+Set-ItemProperty "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" "ColorPrevalence" 0
 
 # Dark theme
 Set-ItemProperty "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize" "AppsUseLightTheme" 0
