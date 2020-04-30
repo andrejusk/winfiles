@@ -3,13 +3,35 @@
     Microsoft.PowerShell_profile
 
 .DESCRIPTION
-    Runs all scripts in components directory
+    Assert PS version 5 or greater
+
+    Run all scripts in components directory
+
+    Execute extra.ps1 if exists
 
 .NOTES
     Adapted from https://github.com/jayharris/dotfiles-windows
 #>
 
 
-Push-Location (Join-Path (Split-Path -parent $profile) "components")
-Get-ChildItem | foreach { Invoke-Expression (Get-Content $_.FullName -Raw) }
-Pop-Location
+$version = $PSVersionTable.PSVersion.Major
+if ($version -lt 5) { Write-Error "Unsupported PowerShell version $version" } 
+
+else {
+
+    # profileDir/components/**
+    $profileDir = Split-Path -parent $profile
+    $componentsPath = Join-Path $profileDir "components"
+    Push-Location $componentsPath
+    Get-ChildItem | foreach { 
+        Invoke-Expression (Get-Content $_.FullName -Raw) 
+    }
+    Pop-Location
+
+    # profileDir/extra.ps1
+    $extraPath = Join-Path $profileDir "extra.ps1"
+    if (Test-Path $extraPath -PathType leaf) {
+        Invoke-Expression (Get-Content $extraPath -Raw)
+    }
+
+}
