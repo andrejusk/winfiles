@@ -1,10 +1,12 @@
 <#
+.SYNOPSIS
+  Accessibility and Ease of Use
+
 .NOTES
   Original author: https://github.com/jayharris/dotfiles-windows
 #>
-###############################################################################
-### Accessibility and Ease of Use                                             #
-###############################################################################
+
+
 Write-Host "Configuring Accessibility..." -ForegroundColor "Yellow"
 
 # Turn Off Windows Narrator

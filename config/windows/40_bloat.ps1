@@ -1,10 +1,12 @@
 <#
+.SYNOPSIS
+  Default Windows Applications
+
 .NOTES
   Original author: https://github.com/jayharris/dotfiles-windows
 #>
-###############################################################################
-### Default Windows Applications                                              #
-###############################################################################
+
+
 Write-Host "Configuring Default Windows Applications..." -ForegroundColor "Yellow"
 
 # Uninstall 3D Builder
@@ -88,8 +90,8 @@ Get-AppxPackage "Microsoft.Office.OneNote" -AllUsers | Remove-AppxPackage
 Get-AppXProvisionedPackage -Online | Where DisplayNam -like "Microsoft.Office.OneNote" | Remove-AppxProvisionedPackage -Online
 
 # # Uninstall Paint
-# Get-AppxPackage "Microsoft.MSPaint" -AllUsers | Remove-AppxPackage
-# Get-AppXProvisionedPackage -Online | Where DisplayNam -like "Microsoft.MSPaint" | Remove-AppxProvisionedPackage -Online
+Get-AppxPackage "Microsoft.MSPaint" -AllUsers | Remove-AppxPackage
+Get-AppXProvisionedPackage -Online | Where DisplayNam -like "Microsoft.MSPaint" | Remove-AppxProvisionedPackage -Online
 
 # Uninstall People
 Get-AppxPackage "Microsoft.People" -AllUsers | Remove-AppxPackage

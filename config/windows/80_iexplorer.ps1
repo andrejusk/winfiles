@@ -1,10 +1,12 @@
 <#
+.SYNOPSIS
+  Internet Explorer
+
 .NOTES
   Original author: https://github.com/jayharris/dotfiles-windows
 #>
-###############################################################################
-### Internet Explorer                                                         #
-###############################################################################
+
+
 Write-Host "Configuring Internet Explorer..." -ForegroundColor "Yellow"
 
 # Set home page to `about:blank` for faster loading

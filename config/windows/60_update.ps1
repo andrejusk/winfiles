@@ -1,10 +1,12 @@
 <#
+.SYNOPSIS
+  Windows Update & Application Updates
+
 .NOTES
   Original author: https://github.com/jayharris/dotfiles-windows
 #>
-###############################################################################
-### Windows Update & Application Updates                                      #
-###############################################################################
+
+
 Write-Host "Configuring Windows Update..." -ForegroundColor "Yellow"
 
 # Ensure Windows Update registry paths
