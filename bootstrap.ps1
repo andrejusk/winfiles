@@ -27,9 +27,10 @@ $bootstrapConfig    = Get-Content -Path $bootstrapJson | ConvertFrom-Json
 function Get-Base-Dir($base) {
     <# Return supported destination paths #>
     $dir = Switch -Exact ($base) {
-        "appdata"   { $env:APPDATA; break }
-        "home"      { $home;        break }
-        default     { $profileDir }
+        "appdata"       { $env:APPDATA;         break }
+        "localappdata"  { $env:LOCALAPPDATA;    break }
+        "home"          { $home;                break }
+        default         { $profileDir }
     }
     return $dir
 }
