@@ -13,6 +13,48 @@ function Get-ProfilePath($path) {
     return Join-Path (Split-Path -parent $profile) $path
 }
 
+function Create-Shortcut($source, $args, $destination) {
+    echo $source
+    echo $destination
+    $WshShell = New-Object -comObject WScript.Shell
+    $Shortcut = $WshShell.CreateShortcut($destination)
+    $Shortcut.TargetPath = $source
+    $Shortcut.Arguments = [string]$args
+    $Shortcut.Save()
+}
+
+function Restart-Gpg {
+    gpg-connect-agent killagent /bye
+    gpg-connect-agent /bye
+}
+
+function Get-GpgKeyId($email) {
+    return gpg --with-colons --keyid-format LONG --list-keys $email `
+        | grep '^pub:-:4096:1:' | cut -d: -f5
+}
+
+function Get-GpgFingerprint($keyId) {
+    return gpg --with-colons --fingerprint $keyId `
+        | grep -m1 fpr | cut -d ':' -f 10
+}
+
+function Remove-FromPath($pathToRemove) {
+    <# https://stackoverflow.com/a/39012021 #>
+    # Get it
+    $path = [System.Environment]::GetEnvironmentVariable(
+        'PATH',
+        'Machine'
+    )
+    # Remove unwanted elements
+    $path = ($path.Split(';') | Where-Object { $_ -ne $pathToRemove }) -join ';'
+    # Set it
+    [System.Environment]::SetEnvironmentVariable(
+        'PATH',
+        $path,
+        'Machine'
+    )
+}
+
 function System-Update() {
     if (!(Verify-Elevated)) {
         $newProcess = new-object System.Diagnostics.ProcessStartInfo "PowerShell";

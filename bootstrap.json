@@ -13,14 +13,22 @@
         "wipe": true
     }, {
         "src": "./config/windows/**",
-        "dst": "config/windows"
+        "dst": "config\\windows"
     }, {
         "base": "home",
         "src": "./home/**",
         "dst": "."
     }, {
+        "base": "home",
+        "src": "./ssh/**",
+        "dst": ".ssh"
+    }, {
         "base": "appdata",
         "src": "./vscode/**",
-        "dst": "Code/User"
+        "dst": "Code\\User"
+    }, {
+        "base": "localappdata",
+        "src": "./terminal/**",
+        "dst": "Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState"
     }]
 }
