@@ -1,12 +1,6 @@
 <#
 .SYNOPSIS
-    Run all windows install scripts
-
-.DESCRIPTION
-    Ensures to be run as Administrator
-
-.NOTES
-    Adapted form https://github.com/jayharris/dotfiles-windows
+    Run all windows install script
 #>
 
 

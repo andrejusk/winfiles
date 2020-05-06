@@ -1,7 +1,8 @@
 <#
 .SYNOPSIS
-    Login to keybase and import pgp key
+  Import keybase keys to gpg keyring
 #>
+
 
 keybase login
 keybase pgp export | gpg --import

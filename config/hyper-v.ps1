@@ -2,6 +2,8 @@
 .SYNOPSIS
   Configure a Hyper-V VM
 #>
+
+
 Assert-PowershellAdmin
 
 $vmName = "dev-vm"
