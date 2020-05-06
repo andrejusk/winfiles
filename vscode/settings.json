@@ -14,7 +14,7 @@
 
     // Remote SSH preferences
     "remote.SSH.remotePlatform": {
-        "dev": "linux"
+        "nixos": "linux"
     },
     "remote.SSH.defaultExtensions": [
 
@@ -27,8 +27,11 @@
         // Language plugins
         "TabNine.tabnine-vscode",
         "skyapps.fish-vscode",
-        "ms-python.python"
-    ],
-    "terminal.integrated.shell.linux": "/usr/bin/fish"
+        "ms-python.python",
+
+        // Nix plugins
+        "arrterian.nix-env-selector"
+
+    ]
 
 }

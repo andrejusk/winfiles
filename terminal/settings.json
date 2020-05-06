@@ -46,7 +46,7 @@
             {
                 "guid": "{c0ff33c0-ff33-c0ff-eec0-ffeec0ffeec0}",
                 "name": "Nix",
-                "commandline": "powershell.exe -c ssh andrejus@nixos.lan",
+                "commandline": "powershell.exe -c ssh andrejus@nixos",
                 "hidden": false
             }
         ]

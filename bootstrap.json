@@ -13,22 +13,23 @@
         "wipe": true
     }, {
         "src": "./config/windows/**",
-        "dst": "config\\windows"
+        "dst": "config\\windows",
+        "wipe": true
     }, {
-        "base": "home",
         "src": "./home/**",
-        "dst": "."
+        "dst": ".",
+        "base": "home"
     }, {
-        "base": "home",
         "src": "./ssh/**",
-        "dst": ".ssh"
+        "dst": ".ssh",
+        "base": "home"
     }, {
-        "base": "appdata",
         "src": "./vscode/**",
-        "dst": "Code\\User"
+        "dst": "Code\\User",
+        "base": "appdata"
     }, {
-        "base": "localappdata",
         "src": "./terminal/**",
-        "dst": "Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState"
+        "dst": "Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState",
+        "base": "localappdata"
     }]
 }

@@ -4,7 +4,8 @@
     as configured in bootstrap.json next to the script
 
 .DESCRIPTION
-    Does not rely on components being imported, can be run as user.
+    Does not rely on components being imported, to be run as user
+
     1. Load in configuration file
     2. Create necessary dirs if don't exist
     3. Wipe dirs to ensure fresh setup
@@ -27,9 +28,9 @@ $bootstrapConfig    = Get-Content -Path $bootstrapJson | ConvertFrom-Json
 function Get-Base-Dir($base) {
     <# Return supported destination paths #>
     $dir = Switch -Exact ($base) {
-        "appdata"       { $env:APPDATA;         break }
-        "localappdata"  { $env:LOCALAPPDATA;    break }
-        "home"          { $home;                break }
+        "appdata"       { $env:APPDATA; break }
+        "localappdata"  { $env:LOCALAPPDATA; break }
+        "home"          { $home; break }
         default         { $profileDir }
     }
     return $dir
@@ -44,8 +45,10 @@ foreach ($target in $bootstrapConfig.targets) {
     if (!$target.dst) { Write-Error "Missing 'dst' argument for $target"; exit }
 
     # Supported destination paths
+    $src = $target.src
     $dir = Get-Base-Dir $target.base
     $dst = Join-Path $dir $target.dst
+    Write-Host "Moving $src to $dst"
 
     # Ensure dst exists
     New-Item $dst -ItemType Directory -Force -ErrorAction SilentlyContinue | Out-Null
@@ -54,7 +57,7 @@ foreach ($target in $bootstrapConfig.targets) {
     if ($target.wipe) { Get-ChildItem $dst -Include ** | Remove-Item -Recurse -Force }
 
     # Copy contents
-    Copy-Item -Path $target.src -Destination $dst -Include ** -Exclude $target.exclude
+    Copy-Item -Path $src -Destination $dst -Include ** -Exclude $target.exclude
 
 }
 

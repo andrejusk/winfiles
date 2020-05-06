@@ -51,18 +51,17 @@ To configure a new Windows machine (as admin)
 
     # winfiles config windows
 
-To install tools and dependencies (as admin)
+To install/update tools and dependencies (as admin)
 
     # winfiles config deps
-
-To login and import GPG key from keybase
-
-    $ winfiles config pgp
 
 To create a Hyper-V VM (as admin)
 
     # winfiles config hyper-v
 
+To import PGP key from Keybase
+
+    $ winfiles config pgp
 
 # Repository Layout
 
