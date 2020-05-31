@@ -35,7 +35,7 @@ function Download-File {
         [string]$file
     )
     Write-Host "Downloading $url to $file"
-    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls13
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
     Invoke-WebRequest -Uri $url -OutFile $file
 }
 
