@@ -27,6 +27,7 @@ if (![System.IO.Directory]::Exists($tempDir)) {[System.IO.Directory]::CreateDire
 
 $winfilesZip    = Join-Path $tempDir "$branch-$guid.zip"
 $winfilesDir    = Join-Path $tempDir "$guid"
+$extractedDir   = Join-Path $winfilesDir "$repo-$branch"
 
 
 function Download-File {
@@ -71,11 +72,6 @@ function Unzip-File {
 Download-File $repositoryUrl $winfilesZip
 Unzip-File $winfilesZip $winfilesDir
 
-Push-Location $winfilesDir
+Push-Location $extractedDir
 & .\bootstrap.ps1
 Pop-Location
-
-$newProcess = new-object System.Diagnostics.ProcessStartInfo "PowerShell";
-$newProcess.Arguments = "-nologo";
-[System.Diagnostics.Process]::Start($newProcess);
-exit
