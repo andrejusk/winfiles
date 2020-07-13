@@ -16,20 +16,24 @@
         "dst": "config\\windows",
         "wipe": true
     }, {
-        "src": "./home/**",
-        "dst": ".",
-        "base": "home"
+        "src": "./files/home/**",
+        "base": "home",
+        "dst": "."
     }, {
-        "src": "./ssh/**",
-        "dst": ".ssh",
-        "base": "home"
+        "src": "./files/ssh/**",
+        "base": "home",
+        "dst": ".ssh"
     }, {
-        "src": "./vscode/**",
-        "dst": "Code\\User",
-        "base": "appdata"
+        "src": "./files/vscode/**",
+        "base": "appdata",
+        "dst": "Code\\User"
     }, {
-        "src": "./terminal/**",
-        "dst": "Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState",
-        "base": "localappdata"
+        "src": "./files/alacritty/**",
+        "base": "appdata",
+        "dst": "alacritty"
+    }, {
+        "src": "./files/terminal/**",
+        "base": "localappdata",
+        "dst": "Packages\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\LocalState"
     }]
 }
