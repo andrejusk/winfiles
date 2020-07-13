@@ -28,10 +28,4 @@ else {
     }
     Pop-Location
 
-    # profileDir/extra.ps1
-    $extraPath = Join-Path $profileDir "extra.ps1"
-    if (Test-Path $extraPath -PathType leaf) {
-        Invoke-Expression (Get-Content $extraPath -Raw)
-    }
-
 }

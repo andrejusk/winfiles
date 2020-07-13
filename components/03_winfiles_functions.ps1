@@ -66,7 +66,6 @@ function System-Update() {
     }
     Install-WindowsUpdate -IgnoreUserInput -IgnoreReboot -AcceptAll
     Update-Module
-    Update-Help -Force
     choco upgrade all
 }
 

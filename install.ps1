@@ -3,9 +3,9 @@
     Entrypoint script to perform git-less setup of the repo
 
 .DESCRIPTION
-    * download repository zip and extract to temp dir
+    * download repository zip
+    * extract to temp dir
     * run bootstrap script
-    * spawn new powershell
 
 .EXAMPLE
     . { iwr -useb https://<host>/install.ps1 } | iex; install
