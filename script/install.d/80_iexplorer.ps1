@@ -3,7 +3,7 @@
   Internet Explorer
 
 .NOTES
-  Original author: https://github.com/jayharris/dotfiles-windows
+  Adapted from https://github.com/jayharris/dotfiles-windows
 #>
 
 
